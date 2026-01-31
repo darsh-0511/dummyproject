@@ -94,6 +94,42 @@ npm run dev
 5. **Smart Assign:**
 * Click the **"Smart Assign"** button on the map.
 * The system will randomly select an open seat for you.
+MONGODB COMMANDS:
+
+Step 1: Install MongoDB on macOS
+
+We will use Homebrew, which is the standard package manager for macOS. Open your Terminal and run the following commands:
+
+Tap the MongoDB library:
+
+Bash
+brew tap mongodb/brew
+Install MongoDB Community Edition:
+
+Bash
+brew install mongodb-community
+Start MongoDB as a service:
+
+Bash
+brew services start mongodb-community
+Verify it's running: You can check if the database is active by typing mongosh in your terminal. If it connects to a shell prompt (test>), you are good to go. Type exit to leave.
+
+Option 1: mongosh (The Terminal Way)
+
+This is the quickest way because you likely already installed it with MongoDB. It lives inside your Terminal, just like Python or Homebrew.
+
+Open a new tab in your terminal (press Cmd + T).
+
+Type mongosh and hit Enter.
+
+If it works, you will see a prompt like test>.
+
+To see your new data, run these commands inside that prompt:
+
+JavaScript
+use office_booking_db
+db.seats.find()
+Note: If your terminal says "command not found", you need to install it: brew install mongosh.
 
 
 
