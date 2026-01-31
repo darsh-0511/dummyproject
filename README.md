@@ -94,7 +94,8 @@ npm run dev
 5. **Smart Assign:**
 * Click the **"Smart Assign"** button on the map.
 * The system will randomly select an open seat for you.
-MONGODB COMMANDS:
+
+## 🧪 MONGODB COMMANDS
 
 Step 1: Install MongoDB on macOS
 
