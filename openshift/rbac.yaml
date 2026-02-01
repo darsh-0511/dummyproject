@@ -1,0 +1,41 @@
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: blu-reserve-sa
+  namespace: blu-reserve
+  labels:
+    app: blu-reserve
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: blu-reserve-role
+  namespace: blu-reserve
+  labels:
+    app: blu-reserve
+rules:
+- apiGroups: [""]
+  resources: ["pods", "services", "configmaps", "secrets"]
+  verbs: ["get", "list", "watch"]
+- apiGroups: ["apps"]
+  resources: ["deployments", "replicasets"]
+  verbs: ["get", "list", "watch"]
+- apiGroups: ["route.openshift.io"]
+  resources: ["routes"]
+  verbs: ["get", "list"]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: blu-reserve-rolebinding
+  namespace: blu-reserve
+  labels:
+    app: blu-reserve
+subjects:
+- kind: ServiceAccount
+  name: blu-reserve-sa
+  namespace: blu-reserve
+roleRef:
+  kind: Role
+  name: blu-reserve-role
+  apiGroup: rbac.authorization.k8s.io

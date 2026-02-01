@@ -1,0 +1,46 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: blu-reserve
+  namespace: blu-reserve
+  labels:
+    app: blu-reserve
+  annotations:
+    haproxy.router.openshift.io/timeout: "60s"
+    haproxy.router.openshift.io/balance: "roundrobin"
+spec:
+  host: blu-reserve.apps.your-cluster.com  # Update with your OpenShift cluster domain
+  to:
+    kind: Service
+    name: blu-reserve-frontend
+    weight: 100
+  port:
+    targetPort: http
+  tls:
+    termination: edge
+    insecureEdgeTerminationPolicy: Redirect
+  wildcardPolicy: None
+---
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: blu-reserve-api
+  namespace: blu-reserve
+  labels:
+    app: blu-reserve
+    component: backend
+  annotations:
+    haproxy.router.openshift.io/timeout: "60s"
+spec:
+  host: blu-reserve-api.apps.your-cluster.com  # Update with your OpenShift cluster domain
+  path: /api
+  to:
+    kind: Service
+    name: blu-reserve-backend
+    weight: 100
+  port:
+    targetPort: http
+  tls:
+    termination: edge
+    insecureEdgeTerminationPolicy: Redirect
+  wildcardPolicy: None

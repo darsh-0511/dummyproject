@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: blu-reserve-backend
+  namespace: blu-reserve
+  labels:
+    app: blu-reserve
+    component: backend
+  annotations:
+    description: "Backend API service for Blu-Reserve"
+spec:
+  type: ClusterIP
+  selector:
+    app: blu-reserve
+    component: backend
+  ports:
+  - name: http
+    port: 8000
+    targetPort: 8000
+    protocol: TCP
+  sessionAffinity: None
