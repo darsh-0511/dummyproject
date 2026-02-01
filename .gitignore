@@ -1,40 +1,35 @@
+
 # Python (Backend)
+
 __pycache__/
 *.py[cod]
-backend/venv/
-backend/.env
+.pytest_cache/
 backend/__pycache__/
+backend/.env
+backend/venv/
 
-# Node (Frontend)
+
+# Node / Frontend
 frontend/node_modules/
 frontend/dist/
 frontend/.env
-.DS_Store
-.vscode/
 
-cat > .gitignore << 'EOF'
-# Python
-__pycache__/
-*.pyc
-venv/
-.pytest_cache/
 
-# Node
 node_modules/
 dist/
 
-# Environment
+
+# Environment files
 .env
 .env.local
 
-# IDE
+
+# IDE / OS files
 .vscode/
 .idea/
+.DS_Store
+
 
 # Logs
 *.log
 logs/
-
-# OS
-.DS_Store
-EOF
