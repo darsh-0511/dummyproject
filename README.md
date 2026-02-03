@@ -1,4 +1,4 @@
-# Blu-Reserve 🍽️
+# Blu-Reserve 
 
 **A Touchless Corporate Cafeteria Booking System**
 
@@ -22,7 +22,7 @@ Blu-Reserve is a capacity management tool designed for the post-COVID workplace.
 - [Deployment](#-deployment)
 - [Contribution Guidelines](#-contribution-guidelines)
 - [Limitations & Assumptions](#-limitations--assumptions)
-- [License](#-license)
+
 
 ---
 
@@ -268,7 +268,7 @@ For other operating systems, refer to the [official MongoDB installation guide](
 cd backend
 source venv/bin/activate  # Activate virtual environment
 uvicorn main:app --reload
-```
+
 
 Backend will be available at: **http://localhost:8000**
 
@@ -277,7 +277,7 @@ Backend will be available at: **http://localhost:8000**
 ```bash
 cd frontend
 npm run dev
-```
+
 
 Frontend will be available at: **http://localhost:5173**
 
@@ -567,40 +567,7 @@ Use conventional commits format:
 - Auto-release timer is 45 minutes for all bookings
 - Application runs in trusted network environment
 - Container registry credentials are properly configured
-- OpenShift cluster has sufficient resources
 
-### Known Issues
-
-- Auto-release requires periodic cleanup job (not automated)
-- Session middleware may cause issues in load-balanced environments
-- Frontend assumes backend is always available (no offline mode)
-
-### Future Enhancements
-
-- Integrate with real IBM w3id SSO
-- Add Redis for distributed session management
-- Implement WebSocket for real-time seat updates
-- Add email notifications via SMTP
-- Create admin panel for configuration
-- Add metrics and monitoring (Prometheus/Grafana)
-- Implement database migrations (Alembic)
 
 ---
 
-## 📄 License
-
-This project is licensed under the GNU General Public License v3.0 - see the [LICENSE](LICENSE) file for details.
-
----
-
-## 📞 Support
-
-For questions or issues:
-1. Check existing documentation in `/openshift/DEPLOYMENT_GUIDE.md`
-2. Review build instructions in `BUILD_INSTRUCTIONS.md`
-3. Open an issue in the repository
-4. Contact the development team
-
----
-
-**Built with ❤️ for safer workplace collaboration**
